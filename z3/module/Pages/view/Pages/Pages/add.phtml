@@ -1,0 +1,62 @@
+<div class="container">
+	<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<h1>Register New User </h1>
+
+
+
+<?php
+     
+    $form=$this->form;
+    $form->prepare();
+    $form->setAttribute('action',$this->url('add'));
+    $form->setAttribute('method', 'post');
+    $form->setAttribute('class', 'form-horizontal');
+    $formLabel = $this->plugin('formLabel');
+    echo $this->form()->openTag($form);
+?>
+
+   <div class="form-group">
+   	<?php
+
+    $name = $form->get('name');
+    echo $formLabel->openTag() . $name->getOption('label');
+     echo $this->formInput($name);
+    echo $this->formElementErrors($name);
+    echo $formLabel->closeTag();
+    
+?></div> 
+
+<div class="form_group">
+<?php
+    $email = $form->get('email');
+    echo $formLabel->openTag() . $email->getOption('label');
+    echo $this->formInput($email);
+    echo $this->formElementErrors($email);
+    echo $formLabel->closeTag();
+?></div>
+
+<div class="form_group">
+<?php
+    $mobile = $form->get('mobile');
+    echo $formLabel->openTag() . $mobile->getOption('label');
+    echo $this->formInput($mobile);
+    echo $this->formElementErrors($mobile);
+    echo $formLabel->closeTag();
+?></div>
+
+
+
+
+
+
+
+
+
+<?= $this->formElement($form->get('security')) ?>
+<?= $this->formElement($form->get('send')) ?>
+
+<?= $this->form()->closeTag() ?>
+</div>
+</div>
+</div>

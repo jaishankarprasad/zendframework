@@ -1,0 +1,36 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">    
+<table class="table table-condensed">
+	<h1 style=color:blue;> Welcome to CURD Operation :-</h1>
+	<caption style=color:red;>Users table and data:--</caption>
+	<caption><a class="btn btn-link" href="<?php echo  $this->url('add');?>">Add new Records</a></caption>
+	<thead>
+		<tr>
+			<th>UserNmae</th>
+			<th>UserEmail</th>
+			<th>UserMobile</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+		foreach($result as $row)
+		{
+			?>
+			<tr>
+			<td><?php echo $row->name; ?></td>
+			<td><?php  echo $row->email;?></td>
+			<td><?Php echo $row->mobile; ?></td>
+			<td>
+				<a href="<?php  echo $this->url('update',array('action'=>'update', 'id'=>$row->id),true);?>">Update</a>||
+				<a href="<?php  echo $this->url('delete',array('id'=>$row->id),true);?>">Delete</a>
+			</td>
+			</tr>
+			<?php
+		}
+		?>
+	</tbody>
+	
+</table>

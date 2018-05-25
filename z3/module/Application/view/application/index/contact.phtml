@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<h1>Contact us</h1>
+
+
+
+<?php
+     
+    $form=$this->form;
+    $form->prepare();
+    $form->setAttribute('action',$this->url('process'));
+    $form->setAttribute('method', 'post');
+    $formLabel = $this->plugin('formLabel');
+    echo $this->form()->openTag($form);
+?>
+
+   <div class="form-element">
+   	<?php
+
+    $name = $form->get('name');
+    echo $formLabel->openTag() . $name->getOption('label');
+    echo $this->formInput($name);
+    echo $this->formElementErrors($name);
+    echo $formLabel->closeTag();
+?></div>
+
+<div class="form_element">
+<?php
+    $email = $form->get('email');
+    echo $formLabel->openTag() . $email->getOption('label');
+    echo $this->formInput($email);
+    echo $this->formElementErrors($email);
+    echo $formLabel->closeTag();
+?></div>
+
+<div class="form_element">
+<?php
+    $subject = $form->get('subject');
+    echo $formLabel->openTag() . $subject->getOption('label');
+    echo $this->formInput($subject);
+    echo $this->formElementErrors($subject);
+    echo $formLabel->closeTag();
+?></div>
+
+<div class="form_element">
+<?php
+    $message = $form->get('message');
+    echo $formLabel->openTag() . $message->getOption('label');
+    echo $this->formTextarea($message);
+    echo $this->formElementErrors($message);
+    echo $formLabel->closeTag();
+?></div>
+
+
+
+<?= $this->formElement($form->get('security')) ?>
+<?= $this->formElement($form->get('send')) ?>
+
+<?= $this->form()->closeTag() ?>
+</div>
+</div>
+</div>

@@ -1,0 +1,69 @@
+<div class="container">
+	<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<h1>Update Required Field Here ............Edit User Record  </h1>
+
+
+
+<?php
+     
+    $form=$this->form;
+    $form->prepare();
+    $form->setAttribute('action',$this->url('update',array(),true));
+    $form->setAttribute('method', 'post');
+    $form->setAttribute('class', 'form-horizontal');
+    $formLabel = $this->plugin('formLabel');
+    echo $this->form()->openTag($form);
+?>
+
+   <div class="form-group">
+   	<?php
+
+    $name = $form->get('name');
+    echo $formLabel->openTag() . $name->getOption('label');
+    $name->setValue($row['name']);
+    echo $this->formInput($name);
+     echo $formLabel->closeTag();
+    
+    echo $this->formElementErrors($name);
+   
+    
+?></div>
+
+<div class="form_group">
+<?php
+    $email = $form->get('email');
+    echo $formLabel->openTag() . $email->getOption('label');
+    // echo $formLabel->closeTag();
+     $email->setValue($row['email']);
+    echo $this->formInput($email);
+    echo $this->formElementErrors($email);
+   
+?></div>
+
+<div class="form_group">
+<?php
+    $mobile = $form->get('mobile');
+    echo $formLabel->openTag() . $mobile->getOption('label');
+   // echo $formLabel->closeTag();
+    $mobile->setValue($row['mobile']);
+    echo $this->formInput($mobile);
+    echo $this->formElementErrors($mobile);
+   // echo $formLabel->closeTag();
+?></div>
+
+
+
+
+
+
+
+
+
+<?= $this->formElement($form->get('security')) ?>
+<?= $this->formElement($form->get('send')) ?>
+
+<?= $this->form()->closeTag() ?>
+</div>
+</div>
+</div>

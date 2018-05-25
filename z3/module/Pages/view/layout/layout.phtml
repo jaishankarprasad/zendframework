@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="">
+<head>
+
+	<title> title page</title>
+
+	<!-- bootstrap css-->
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+</head>
+<body>
+	<?php 
+     $flashmessenger=$this->flashmessenger();
+     if($flashmessenger->hasMessages())
+     {
+     	echo "<ul>"; 
+     	foreach($flashmessenger->getMessages() as $messages)
+     	{
+     		echo "<li class='alert alert-info'> $messages </li>";
+
+     	}
+     	echo "</ul>";
+     }
+
+     ?>
+
+
+	<?= $this->content ?>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+
+
+
+</body>
+</html>
